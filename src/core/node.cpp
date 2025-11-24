@@ -22,7 +22,7 @@ namespace rsnet::core {
     void Node::start() {
         if (transport_->start()) {
             isRunning_ = true;
-            std::cout << "[Node] System is ONLINE." << std::endl;
+            log("[Node] System is ONLINE.");
         }
     }
 
@@ -34,25 +34,27 @@ namespace rsnet::core {
     }
 
     void Node::connectToPeer(const std::string& address) {
-        std::cout << "[Node] Added peer: " << address << std::endl;
+        log("[Node] Connecting to peer: " + address);
         peerManager_->addPeer(address);
     }
 
     void Node::broadcastMessage(const std::string& message) {
         auto peers = peerManager_->getActivePeers();
-        if (peers.empty()) {
-            std::cout << "[Node] No peers connected. Use 'connect <ip>' first." << std::endl;
-            return;
-        }
-
         DataBuffer data(message.begin(), message.end());
         for (const auto& peer : peers) {
             transport_->send(peer, data);
         }
     }
 
+    void Node::log(const std::string& msg) {
+        std::cout << msg << std::endl;
+        if (logCallback_) {
+            logCallback_(msg);
+        }
+    }
+
     void Node::onMessageReceived(const PeerId& sender, const DataBuffer& data) {
         std::string msg(data.begin(), data.end());
-        std::cout << "[Node] Received from " << sender << ": " << msg << std::endl;
+        log("[Node] Received from " + sender + ": " + msg);
     }
 }
