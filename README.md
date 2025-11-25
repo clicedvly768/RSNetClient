@@ -3,7 +3,7 @@
 ![C++](https://img.shields.io/badge/C++-17+-blue.svg)
 ![CMake](https://img.shields.io/badge/CMake-3.16+-red.svg)
 ![License](https://img.shields.io/badge/License-MIT-yellow.svg)
-![Platform](https://img.shields.io/badge/Platform-Linux%20%7C%20macOS%20%7C%20Windows-lightgrey.svg)
+![Platform](https://img.shields.io/badge/Platform-Linux%20%7C%20macOS%20%7C%20Windows%20%7C%20Android-lightgrey.svg)
 
 **RSNet Client** — это кроссплатформенный P2P клиент для обмена сообщениями и файлами, написанный на C++17 с использованием Qt6/Qt5.
 
