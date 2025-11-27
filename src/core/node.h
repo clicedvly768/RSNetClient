@@ -1,6 +1,6 @@
 #pragma once
 #include <memory>
-#include <functional> // <--- Добавили
+#include <functional>
 #include <string>
 #include "network/transport.h"
 #include "peer_manager.h"
@@ -31,4 +31,5 @@ namespace rsnet::core {
         bool isRunning_;
         LogCallback logCallback_;
     };
+
 }
