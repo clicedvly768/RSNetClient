@@ -2,7 +2,6 @@
 #include <iostream>
 #include <string>
 
-// Магия для Windows и Linux в одном файле
 #ifdef _WIN32
     #include <winsock2.h>
     #pragma comment(lib, "ws2_32.lib")
@@ -50,4 +49,5 @@ namespace rsnet::network {
     void TcpTransport::setOnReceive(OnReceiveCallback cb) {
         callback_ = cb;
     }
+
 }
